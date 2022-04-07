@@ -1,0 +1,837 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">-->
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/bottom_sheet_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/relNotch"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_10dp"
+            android:layout_gravity="center_horizontal">
+
+            <View
+                android:layout_width="85dp"
+                android:layout_height="5dp"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/rounded_corners_with_bg" />
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_dialog"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/linMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.appbar.AppBarLayout
+                        android:id="@+id/appBarLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_alignParentTop="true"
+                        android:alpha="0">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <FrameLayout
+                                android:id="@+id/frmCancel"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="14dp">
+
+                                <ImageView
+                                    android:id="@+id/cancelBtn"
+                                    android:layout_width="26dp"
+                                    android:layout_height="26dp"
+                                    android:layout_gravity="center"
+                                    android:padding="6dp"
+                                    android:src="@drawable/ic_cancel" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvSessionNameToolbar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="6dp"
+                                android:layout_marginEnd="12dp"
+                                android:layout_weight="1"
+                                android:fontFamily="sans-serif-condensed-medium"
+                                android:textStyle="bold"
+                                android:singleLine="true"
+                                android:textSize="16sp" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.appbar.AppBarLayout>
+
+                    <com.google.android.material.appbar.AppBarLayout
+                        android:id="@+id/appBarDetailLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_alignParentTop="true"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <FrameLayout
+                                android:id="@+id/frmBack"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="14dp"
+                                android:background="@drawable/rounded_corners_reception_toolbar">
+
+                                <ImageView
+                                    android:id="@+id/backBtn"
+                                    android:layout_width="13dp"
+                                    android:layout_height="13dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_back_toolbar" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/tvSessionNameToolbarDetail"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="6dp"
+                                android:layout_marginEnd="12dp"
+                                android:layout_weight="1"
+                                android:fontFamily="sans-serif-condensed-medium"
+                                android:textStyle="bold"
+                                android:singleLine="true"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+                    </com.google.android.material.appbar.AppBarLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/appBarDetailLayout"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/relTop"
+                            android:layout_width="match_parent"
+                            android:layout_height="175dp"
+                            android:layout_alignParentTop="true"
+                            android:visibility="gone">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/black"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:id="@+id/linearYoutubeView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <WebView
+                                        android:id="@+id/wvVideo"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_centerVertical="true" />
+
+                                    <View
+                                        android:id="@+id/overlayWebView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:clickable="true"
+                                        android:focusableInTouchMode="true" />
+
+                                    <RelativeLayout
+                                        android:id="@+id/relControls"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="60dp"
+                                        android:layout_alignParentBottom="true"
+                                        android:clickable="true"
+                                        android:focusableInTouchMode="true"
+                                        android:visibility="gone">
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_alignParentBottom="true"
+                                            android:background="@drawable/black_gradient_bottom" />
+
+                                        <LinearLayout
+                                            android:id="@+id/linControls"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="40dp"
+                                            android:layout_alignParentBottom="true"
+                                            android:layout_margin="6dp"
+                                            android:gravity="center_vertical"
+                                            android:orientation="horizontal">
+
+                                            <ImageView
+                                                android:id="@+id/play"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:src="@android:drawable/ic_media_play" />
+
+                                            <TextView
+                                                android:id="@+id/seekTime"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginEnd="4dp"
+                                                android:text="00:00"
+                                                android:textColor="#FFFFFF" />
+
+                                            <SeekBar
+                                                android:id="@+id/seekBar"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="6"
+                                                android:maxHeight="3dp"
+                                                android:minHeight="3dp"
+                                                android:progressDrawable="@drawable/progress_selector"
+                                                android:thumb="@drawable/progress_bar_thumb" />
+
+                                            <TextView
+                                                android:id="@+id/totalTime"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginEnd="8dp"
+                                                android:text="00:00"
+                                                android:textColor="#FFFFFF" />
+
+                                            <ImageView
+                                                android:id="@+id/ivFullScreen"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:src="@drawable/ic_fullscreen_24" />
+
+                                            <ImageView
+                                                android:id="@+id/ivPip"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:src="@drawable/ic_baseline_picture_in_picture_alt_24" />
+
+                                        </LinearLayout>
+                                    </RelativeLayout>
+
+                                    <ProgressBar
+                                        android:id="@+id/webviewProgress"
+                                        android:layout_width="45dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:visibility="gone" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:id="@+id/relVimeoWebvie"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:visibility="gone">
+
+                                    <WebView
+                                        android:id="@+id/wvVideoVimeo"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_centerVertical="true" />
+
+                                    <ProgressBar
+                                        android:id="@+id/webviewProgressVimeo"
+                                        android:layout_width="45dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:visibility="gone" />
+
+                                    <ImageView
+                                        android:id="@+id/ivPipVimeo"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_alignParentBottom="true"
+                                        android:padding="6dp"
+                                        android:src="@drawable/ic_baseline_picture_in_picture_alt_24" />
+
+                                    <LinearLayout
+                                        android:id="@+id/linVimeoVideoNotStated"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/black"
+                                        android:visibility="gone">
+
+                                        <TextView
+                                            android:id="@+id/tvVimeoNoVideoMsg"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:text="Strem will start soon"
+                                            android:textColor="@color/white"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:id="@+id/frameVideoView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <VideoView
+                                        android:id="@+id/videoView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_centerInParent="true"
+                                        android:layout_gravity="center" />
+
+                                    <ImageView
+                                        android:id="@+id/ivPreRecordedPlay"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_centerInParent="true"
+                                        android:elevation="20dp"
+                                        android:src="@android:drawable/ic_media_play"
+                                        android:visibility="gone" />
+
+                                    <TextView
+                                        android:id="@+id/tvSessionLive"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:layout_marginTop="10dp"
+                                        android:paddingLeft="5dp"
+                                        android:paddingTop="2dp"
+                                        android:paddingRight="5dp"
+                                        android:paddingBottom="2dp"
+                                        android:textColor="@color/white"
+                                        android:textSize="10sp" />
+
+                                    <ProgressBar
+                                        android:id="@+id/progressBarVimeo"
+                                        android:layout_width="45dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:layout_gravity="center"
+                                        android:visibility="gone" />
+                                </RelativeLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <androidx.core.widget.NestedScrollView
+                            android:id="@+id/bottomSheetNestedScroll"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentTop="true"
+                            android:fillViewport="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:id="@+id/profileLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="130dp"
+                                    android:background="@drawable/rounded_corners_top_session"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+
+                                    <com.google.android.material.imageview.ShapeableImageView
+                                        android:id="@+id/imgProfileBg"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="130dp"
+                                        android:adjustViewBounds="true"
+                                        android:scaleType="fitXY"
+                                        android:visibility="gone"
+                                        app:shapeAppearanceOverlay="@style/Top.ImageView.Corner" />
+
+                                    <FrameLayout
+                                        android:id="@+id/frmSessionCountDown"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="130dp"
+                                        android:visibility="visible">
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:id="@+id/txtSessionTimerHeading"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:fontFamily="sans-serif-condensed-medium"
+                                                android:textStyle="bold"
+                                                android:text="Session will start in"
+                                                android:textSize="12sp" />
+
+                                            <TextView
+                                                android:id="@+id/txtSessionTimer"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:fontFamily="sans-serif-condensed-medium"
+                                                android:textStyle="bold"
+                                                android:textSize="24sp"/>
+
+                                        </LinearLayout>
+                                    </FrameLayout>
+
+                                    <FrameLayout
+                                        android:id="@+id/frmUpComingSessionCountDown"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="130dp"
+                                        android:visibility="gone">
+
+                                        <ImageView
+                                            android:id="@+id/imgUpcomingSessionBanner"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:adjustViewBounds="true"
+                                            android:background="@color/black"
+                                            android:scaleType="centerCrop" />
+
+                                        <TextView
+                                            android:id="@+id/txtUpcomingSessionTimer"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:fontFamily="sans-serif-condensed-medium"
+                                            android:gravity="center"
+                                            android:lineSpacingExtra="2dp"
+                                            android:text=""
+                                            android:textColor="@color/white"
+                                            android:textSize="16sp" />
+                                    </FrameLayout>
+
+                                    <TextView
+                                        android:id="@+id/txtSessionLive"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:layout_marginTop="10dp"
+                                        android:layout_marginEnd="10dp"
+                                        android:layout_marginBottom="10dp"
+                                        android:fontFamily="sans-serif-condensed-medium"
+                                        android:textStyle="bold"
+                                        android:paddingLeft="4dp"
+                                        android:paddingTop="2dp"
+                                        android:paddingRight="4dp"
+                                        android:paddingBottom="2dp"
+                                        android:text="LIVE"
+                                        android:textAllCaps="true"
+                                        android:textColor="@color/white"
+                                        android:textSize="12sp" />
+
+
+                                </RelativeLayout>
+
+
+                                <LinearLayout
+                                    android:id="@+id/linMainContainerSession"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:id="@+id/linSessionBottomSheetTime"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="12dp"
+                                        android:layout_marginTop="12dp"
+                                        android:layout_marginRight="12dp"
+                                        android:orientation="horizontal">
+
+                                        <LinearLayout
+                                            android:id="@+id/linSessionDateTime"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:id="@+id/tvStartTimeEndTime"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:fontFamily="sans-serif-condensed-medium"
+                                                android:textStyle="bold"
+                                                android:textSize="14sp" />
+
+                                            <TextView
+                                                android:id="@+id/tvSessionDate"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="1dp"
+                                                android:fontFamily="sans-serif-condensed-medium"
+                                                android:textStyle="bold"
+                                                android:textSize="12sp" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+                                            <FrameLayout
+                                                android:id="@+id/frmCalendar"
+                                                android:layout_width="30dp"
+                                                android:layout_height="30dp"
+                                                android:layout_marginStart="4dp"
+                                                android:layout_marginEnd="4dp"
+                                                android:background="@drawable/circler_with_border_shape">
+
+                                                <ImageView
+                                                    android:id="@+id/imgCalendar"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_gravity="center"
+                                                    android:adjustViewBounds="true"
+                                                    android:src="@drawable/ic_calendar"
+                                                    />
+                                            </FrameLayout>
+
+                                            <FrameLayout
+                                                android:id="@+id/frmNote"
+                                                android:layout_width="30dp"
+                                                android:layout_height="30dp"
+                                                android:layout_marginStart="4dp"
+                                                android:layout_marginEnd="4dp"
+                                                android:background="@drawable/circler_with_border_shape">
+
+                                                <ImageView
+                                                    android:id="@+id/imgNote"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_gravity="center"
+                                                    android:adjustViewBounds="true"
+                                                    android:src="@drawable/ic_note" />
+                                            </FrameLayout>
+
+
+                                            <FrameLayout
+                                                android:id="@+id/frmAdd"
+                                                android:layout_width="30dp"
+                                                android:layout_height="30dp"
+                                                android:layout_marginStart="4dp"
+                                                android:layout_marginEnd="4dp"
+                                                android:background="@drawable/circler_with_border_shape">
+
+                                                <ImageView
+                                                    android:id="@+id/imgAdd"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_gravity="center"
+                                                    android:adjustViewBounds="true"
+                                                    android:padding="4dp"
+                                                    android:src="@drawable/ic_add_my_session" />
+                                            </FrameLayout>
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                    <!--this ui is only visible in bottom sheet-->
+
+                                    <TextView
+                                        android:id="@+id/tvTrackName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="12dp"
+                                        android:layout_marginTop="12dp"
+                                        android:layout_marginEnd="12dp"
+                                        android:fontFamily="sans-serif-condensed-medium"
+                                        android:textStyle="bold"
+                                        android:padding="5dp"
+                                        android:textSize="12sp"
+                                        android:visibility="gone" />
+
+
+                                    <LinearLayout
+                                        android:id="@+id/linSessionTitle"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="12dp"
+                                        android:layout_marginTop="16dp"
+                                        android:layout_marginEnd="12dp"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/tvSessionTitle"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal"
+                                            android:layout_weight="1"
+                                            android:fontFamily="sans-serif-condensed-medium"
+                                            android:textStyle="bold"
+                                            android:gravity="start"
+                                            android:textSize="18sp"
+                                            />
+
+                                        <!--only shown in detail activity-->
+                                        <ImageView
+                                            android:id="@+id/imgdownArrow"
+                                            android:layout_width="12dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_marginStart="6dp"
+                                            android:src="@drawable/ic_down_arrow"
+                                            android:visibility="gone"
+                                            />
+                                        <!--only shown in detail activity-->
+                                    </LinearLayout>
+
+                                    <!--Only show in session detail activity-->
+                                    <TextView
+                                        android:id="@+id/txtSessionDate"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="12dp"
+                                        android:layout_marginTop="10dp"
+                                        android:layout_marginEnd="12dp"
+                                        android:fontFamily="sans-serif-condensed-medium"
+                                        android:textSize="12sp"
+                                        android:visibility="gone" />
+
+                                    <LinearLayout
+                                        android:id="@+id/linSessionDetailContainer"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <View
+                                            android:id="@+id/division"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="1dp"
+                                            android:layout_marginTop="10dp"
+                                            android:visibility="gone" />
+
+                                        <TextView
+                                            android:id="@+id/tvSessionDescription"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="12dp"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginEnd="12dp"
+                                            android:layout_marginBottom="6dp"
+                                            android:fontFamily="sans-serif-condensed-medium"
+                                            android:lineSpacingExtra="2dp"
+                                            android:textSize="12sp"
+                                            />
+
+
+                                        <View
+                                            android:id="@+id/dividerAboveRating"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="1dp"
+                                            android:layout_marginBottom="16dp"
+                                            android:background="@color/color_e0e0e0"
+                                            android:visibility="gone" />
+
+                                        <LinearLayout
+                                            android:id="@+id/linSessionWatching"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_margin="5dp"
+                                            android:gravity="center_vertical"
+                                            android:orientation="horizontal"
+                                            android:visibility="gone"
+                                            tools:visibility="visible">
+
+                                            <LinearLayout
+                                                android:id="@+id/linRating"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="top"
+                                                android:layout_marginStart="10dp"
+                                                android:layout_marginTop="5dp"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:orientation="vertical"
+                                                android:visibility="visible">
+
+                                                <LinearLayout
+                                                    android:id="@+id/llAttendeeCounts"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginBottom="5dp"
+                                                    android:orientation="horizontal"
+                                                    android:visibility="gone">
+
+                                                    <androidx.appcompat.widget.AppCompatImageView
+                                                        android:id="@+id/ivAttendeeIcon"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:src="@drawable/ic_users" />
+
+                                                    <TextView
+                                                        android:id="@+id/tvAttendeeCount"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginStart="10dp"
+                                                        android:fontFamily="sans-serif-condensed-medium"
+                                                        android:textSize="10sp" />
+
+                                                </LinearLayout>
+
+                                                <TextView
+                                                    android:id="@+id/tvYouRated"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:fontFamily="sans-serif-condensed-medium"
+                                                    android:textSize="10sp"
+                                                    android:visibility="gone" />
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:id="@+id/linStatus"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <RelativeLayout
+                                            android:id="@+id/relStatus"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:layout_height="1dp"
+                                                android:layout_centerVertical="true" />
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="center"
+                                                android:orientation="horizontal">
+
+                                                <ImageView
+                                                    android:id="@+id/ivStatusTimer"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:src="@drawable/ic_time_left"
+                                                    android:visibility="gone" />
+
+                                                <TextView
+                                                    android:id="@+id/txtStatus"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_gravity="center"
+                                                    android:fontFamily="sans-serif-condensed-medium"
+                                                    android:gravity="center"
+                                                    android:minHeight="16dp"
+                                                    android:paddingStart="6dp"
+                                                    android:paddingEnd="6dp"
+                                                    android:textSize="12sp"
+                                                    android:visibility="gone" />
+                                            </LinearLayout>
+
+                                        </RelativeLayout>
+
+                                        <TextView
+                                            android:id="@+id/txtRegister"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="36dp"
+                                            android:layout_gravity="bottom|center_horizontal"
+                                            android:layout_marginStart="12dp"
+                                            android:layout_marginTop="12dp"
+                                            android:layout_marginEnd="12dp"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/circle_without_border_shape"
+                                            android:fontFamily="sans-serif-condensed-medium"
+                                            android:gravity="center"
+                                            android:text="REGISTER"
+                                            android:textSize="14sp"
+                                            android:visibility="gone" />
+
+                                    </LinearLayout>
+
+                                    <View
+                                        android:id="@+id/divider"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:layout_marginTop="22dp"
+                                        android:visibility="gone"/>
+
+                                    <LinearLayout
+                                        android:id="@+id/linSpeakers"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/txtSpeakerHeading"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="12dp"
+                                            android:layout_marginTop="26dp"
+                                            android:layout_marginEnd="12dp"
+                                            android:fontFamily="sans-serif-condensed-medium"
+                                            android:textStyle="bold"
+                                            android:text="SPEAKERS"
+                                            android:textSize="14sp"/>
+
+                                        <androidx.recyclerview.widget.RecyclerView
+                                            android:id="@+id/recyclerViewSpeakers"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="12dp"
+                                            android:layout_marginBottom="12dp"
+                                            android:orientation="horizontal"
+                                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                            tools:listitem="@layout/layout_session_speaker_item" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:id="@+id/relExtraSpaceSession"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="12dp"
+                                        android:orientation="vertical" />
+
+                                    <LinearLayout
+                                        android:id="@+id/bottomExtraSpacing"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="34dp"
+                                        android:orientation="vertical" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </androidx.core.widget.NestedScrollView>
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+<!--</layout>-->

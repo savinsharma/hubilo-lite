@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="appColor">#4E59B8</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="color_e0e0e0">#e0e0e0</color>
+    <color name="feed_img_bg">#EBEBEB</color>
+    <color name="color_f0f0f0">#F0F0F0</color>
+    <color name="color_808080">#808080</color>
+    <color name="color_202020">#202020</color>
+    <color name="color_20_black">#33000000</color>
+</resources>

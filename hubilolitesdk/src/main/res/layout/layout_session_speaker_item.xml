@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">-->
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/relMain"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivSessionSpeaker"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:id="@+id/tvSessionSpeakerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ivSessionSpeaker"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center"
+                android:lines="1"
+                android:text=""
+                android:textColor="@color/color_808080"
+                android:textSize="10sp"/>
+        </RelativeLayout>
+    </RelativeLayout>
+<!--
+</layout>-->
