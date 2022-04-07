@@ -17,4 +17,7 @@
     <string name="last_name">Last Name</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="title_activity_signup">Signup</string>
+    <string name="without_sign_in">Without Sign In</string>
+    <string name="demo_screen">Demo screen</string>
+    <string name="title_activity_demo">Demo Screen</string>
 </resources>
