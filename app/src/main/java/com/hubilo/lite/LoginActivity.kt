@@ -22,7 +22,7 @@ class LoginActivity :AppCompatActivity() {
         val btnLogin = findViewById<Button>(R.id.login)
 
         btnLogin.setOnClickListener {
-            val email = edtUsername.text.toString()
+            val email = edtUsername.text.toString().trim()
             val token = "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7fSwiZXZlbnQiOnsib3JnYW5pc2VyX2lkIjo2NjU5NCwiZXZlbnRfaWQiOjExNTA1LCJkZXZpY2VfdHlwZSI6IldFQiIsImFwaV9rZXkiOiJkODVmYWIyODAyOGQ0MDdlYTc5NTBkNzA0YTQ4NjUwOCIsImxhbmd1YWdlX21ldGFfaWQiOjB9fQ.nxCIISI4DEsxyEDBEpli0k45-a-gLfkTnHHw9zqhLzs"
             LoginHelper.checkLogin(this, this, email, token, object : ApiCallResponseCallBack {
                 override fun onError(error: String) {
@@ -36,7 +36,7 @@ class LoginActivity :AppCompatActivity() {
                                 val loginResponse = mainResponse.success?.data as LoginResponse
                                 if (loginResponse.is_register){
                                     edtPassword.visibility = View.VISIBLE
-                                    val loginActivity = Intent(applicationContext, MainActivity::class.java)
+                                    val loginActivity = Intent(applicationContext, SessionStreaming::class.java)
                                     startActivity(loginActivity)
                                     finish()
                                 } else {

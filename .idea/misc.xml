@@ -59,8 +59,10 @@
         <entry key="hubilolitesdk/src/main/res/drawable/rounded_corners_with_bg.xml" value="0.1" />
         <entry key="hubilolitesdk/src/main/res/drawable/rounded_dialog.xml" value="0.1" />
         <entry key="hubilolitesdk/src/main/res/drawable/rounded_drawable_grey_filled_radius20.xml" value="0.1" />
-        <entry key="hubilolitesdk/src/main/res/layout/layout_session.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/layout/layout_session.xml" value="0.25857275254865614" />
+        <entry key="hubilolitesdk/src/main/res/layout/layout_session_bottom_tabs.xml" value="0.25857275254865614" />
         <entry key="hubilolitesdk/src/main/res/layout/layout_session_list_detail_bottom_sheet.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/layout/layout_session_speaker_item.xml" value="0.12227447627191107" />
       </map>
     </option>
   </component>
