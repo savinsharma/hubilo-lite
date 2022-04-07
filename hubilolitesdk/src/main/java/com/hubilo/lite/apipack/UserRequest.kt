@@ -37,7 +37,7 @@ data class UserRequest(
     var language: Int? = null,
 
     @field:SerializedName("agenda_id")
-    var agenda_id: String? = null,
+    var agenda_id: Int? = null,
 
     @field:SerializedName("is_stream")
     var is_stream: Boolean? = null

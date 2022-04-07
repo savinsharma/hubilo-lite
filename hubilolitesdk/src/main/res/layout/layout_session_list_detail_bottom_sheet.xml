@@ -149,7 +149,7 @@
                     <RelativeLayout
                         android:id="@+id/relTop"
                         android:layout_width="match_parent"
-                        android:layout_height="175dp"
+                        android:layout_height="200dp"
                         android:layout_alignParentTop="true"
                         android:visibility="gone">
 
@@ -365,7 +365,7 @@
                             <RelativeLayout
                                 android:id="@+id/profileLayout"
                                 android:layout_width="match_parent"
-                                android:layout_height="150dp"
+                                android:layout_height="200dp"
                                 android:background="@drawable/rounded_corners_top_session"
                                 android:gravity="center_vertical"
                                 android:visibility="gone"

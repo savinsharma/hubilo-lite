@@ -1,17 +1,15 @@
 package com.hubilo.lite
 
-import android.app.Activity
 import android.content.Context
 import android.content.res.Resources
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.RelativeLayout
-import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.hubilo.lite.databinding.LayoutSessionSpeakerItemBinding
 
-class SessionSpeakersAdapter(val activity: Activity, val context: Context, val speakersItemListDetail: List<SpeakersItemDetail?>, )
+class SessionSpeakersAdapter(val context: Context, val speakersItemListDetail: List<com.hubilo.lite.apipack.SpeakersItemDetail?>, )
     : RecyclerView.Adapter<SessionSpeakersAdapter.SessionsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int, ): SessionsViewHolder {
@@ -64,10 +62,12 @@ class SessionSpeakersAdapter(val activity: Activity, val context: Context, val s
         }
 
         fun bind(speakersItem: SpeakersItem?) {
-
+            val profileImage = "https://cdn.v2dev.demohubilo.com/" + "speaker/" +  + "/150" + speakersItem?.profileImg
+            layoutSessionSpeakerItemBinding!!.tvSessionSpeakerName.text = speakersItem?.name
+            layoutSessionSpeakerItemBinding!!.
         }
 
-        fun bindSessionDetail(speakersItem: SpeakersItemDetail?) {
+        fun bindSessionDetail(speakersItem: com.hubilo.lite.apipack.SpeakersItemDetail?) {
 
         }
     }

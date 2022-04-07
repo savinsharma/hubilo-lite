@@ -70,7 +70,7 @@ object LoginHelper {
 
     fun sessionDetail(activity: Activity, context: Context, agenda_id: String, sessionApiCallResponseCallBack: SessionApiCallResponseCallBack) {
         val loginUserRequest = UserRequest()
-        loginUserRequest.agenda_id = agenda_id
+        loginUserRequest.agenda_id = agenda_id.toInt()
         loginUserRequest.is_stream = true
 
         val payload = Payload(loginUserRequest)

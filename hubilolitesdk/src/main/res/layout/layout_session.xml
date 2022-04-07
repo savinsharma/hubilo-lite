@@ -147,6 +147,7 @@
         <!-- Adding bottom sheet after main content -->
         <include
             app:layout_anchorGravity="bottom"
+            android:visibility="gone"
             android:id="@+id/bottom_sheet"
             layout="@layout/layout_session_bottom_tabs" />
 
