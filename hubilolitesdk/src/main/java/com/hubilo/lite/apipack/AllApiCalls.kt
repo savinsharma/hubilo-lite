@@ -12,6 +12,7 @@ class AllApiCalls(private val context: Context?) {
     private val makeStateCallAPIInterface: MakeStateCallAPIInterface?*/
     private var apiInterfaceClass: APIInterface? = null
     private var mainResponseCall: Call<CommonResponse<LoginResponse>>? = null
+    private var sessionResponseCall: Call<CommonResponse<SessionDetailResponse>>? = null
 
     fun webStateApi(
         activity: Activity?,
@@ -131,6 +132,30 @@ class AllApiCalls(private val context: Context?) {
             }
 
             override fun onFailure(call: Call<CommonResponse<LoginResponse>?>, t: Throwable) {
+                apiCallData.onError(t.message + " ")
+            }
+        })
+    }
+
+    fun sessionId(
+        activity: Activity?,
+        request: Request<UserRequest>,
+        apiCallData: SessionApiCallResponseCallBack
+    ) {
+        if (apiInterfaceClass == null) {
+            apiInterfaceClass = APIClient.getClient(activity?.applicationContext!!)?.create(APIInterface::class.java)
+        }
+        sessionResponseCall = apiInterfaceClass?.getSessionDetails(request)
+        sessionResponseCall?.enqueue(object : Callback<CommonResponse<SessionDetailResponse>?> {
+            override fun onResponse(call: Call<CommonResponse<SessionDetailResponse>?>, response: Response<CommonResponse<SessionDetailResponse>?>) {
+                if (response.body() != null) {
+                    apiCallData.onSuccess(response.body()!!)
+                } else {
+                    apiCallData.onError(" ")
+                }
+            }
+
+            override fun onFailure(call: Call<CommonResponse<SessionDetailResponse>?>, t: Throwable) {
                 apiCallData.onError(t.message + " ")
             }
         })

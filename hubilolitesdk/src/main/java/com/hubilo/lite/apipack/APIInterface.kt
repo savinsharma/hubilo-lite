@@ -32,4 +32,7 @@ interface APIInterface {
         @Body userRequest: Request<UserRequest>
     ): Call<CommonResponse<LoginResponse>>
 
+    //Session detail after Join session
+    @POST("sessions/live-agenda/get")
+    fun getSessionDetails(@Body userRequest: Request<UserRequest>): Call<CommonResponse<SessionDetailResponse>>
 }
