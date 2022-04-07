@@ -9,4 +9,5 @@ object PreferenceKeyConstants {
     var ACCESSTOKEN = "ACCESSTOKEN"
     var PASSWORD = "PASSWORD"
     var AGENDA_ID = "AGENDA_ID"
+    var ORGANISERID = "ORGANISERID"
 }

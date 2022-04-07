@@ -36,6 +36,7 @@ class SplashScreenActivity : AppCompatActivity() {
                     ) == true){
                 val sessionStreamingActivity = Intent(applicationContext, SessionStreamingActivity::class.java)
                 startActivity(sessionStreamingActivity)
+                finish()
             } else {
                 LoginHelper.webStateApi(this, this, "12231", object : ApiCallResponseCallBack {
                     override fun onError(error: String) {
@@ -47,15 +48,22 @@ class SplashScreenActivity : AppCompatActivity() {
                             if (mainResponse.success?.data != null) {
                                 if (mainResponse.success?.data is LoginResponse) {
                                     val loginResponse = mainResponse.success?.data as LoginResponse
+                                    if (!loginResponse.organiserId.isNullOrEmpty()) {
+                                        SharedPreferenceUtil.getInstance(this@SplashScreenActivity)
+                                            ?.saveData(
+                                                PreferenceKeyConstants.ORGANISERID,
+                                                loginResponse.organiserId
+                                            )
+                                    }
                                     if (!loginResponse.access_token.isNullOrEmpty()) {
                                         SharedPreferenceUtil.getInstance(this@SplashScreenActivity)
                                             ?.saveData(
                                                 PreferenceKeyConstants.ACCESSTOKEN,
                                                 loginResponse.access_token
                                             )
-                                        val loginActivity =
-                                            Intent(applicationContext, LoginActivity::class.java)
-                                        startActivity(loginActivity)
+                                        val switchDemoActivity =
+                                            Intent(applicationContext, SwitchDemoActivity::class.java)
+                                        startActivity(switchDemoActivity)
                                         finish()
                                     }
                                 }
@@ -67,18 +75,6 @@ class SplashScreenActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "No internet connection", Toast.LENGTH_LONG).show()
         }
-
-        /*Handler(Looper.getMainLooper()).postDelayed({
-            val accessToken = SharedPreferenceUtil.getInstance(this)?.getData(PreferenceKeyConstants.ACCESSTOKEN, "")
-            if(accessToken.isNullOrEmpty()){
-                val loginActivity = Intent(applicationContext, LoginActivity::class.java)
-                startActivity(loginActivity)
-            } else {
-                val sessionStreamingActivity = Intent(applicationContext, SessionStreamingActivity::class.java)
-                startActivity(sessionStreamingActivity)
-            }
-            finish()
-        }, 500)*/
     }
 
 }

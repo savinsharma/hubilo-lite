@@ -7,10 +7,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.hubilo.lite.apipack.ApiCallResponseCallBack
-import com.hubilo.lite.apipack.CommonResponse
-import com.hubilo.lite.apipack.LoginHelper
-import com.hubilo.lite.apipack.LoginResponse
+import com.hubilo.lite.apipack.*
 import com.hubilo.lite.databinding.ActivityLoginBinding
 
 class LoginActivity :AppCompatActivity() {
@@ -42,56 +39,82 @@ class LoginActivity :AppCompatActivity() {
 
         btnLogin.setOnClickListener {
             val email = edtUsername.text.toString().trim()
-            if(edtPassword.visibility == View.GONE && LoginHelper.validation(edtUsername, applicationContext, true)) {
-                //check email api
-                LoginHelper.checkLogin(this, this, email, object : ApiCallResponseCallBack {
-                    override fun onError(error: String) {
+            if(InternetReachability.hasConnection(this)) {
+                if (edtPassword.visibility == View.GONE && LoginHelper.validation(
+                        edtUsername,
+                        applicationContext,
+                        true
+                    )
+                ) {
+                    //check email api
+                    LoginHelper.checkLogin(this, this, email, object : ApiCallResponseCallBack {
+                        override fun onError(error: String) {
 
-                    }
+                        }
 
-                    override fun onSuccess(mainResponse: CommonResponse<LoginResponse>) {
-                        if (mainResponse.status == true) {
-                            if (mainResponse.success?.data != null) {
-                                if (mainResponse.success?.data is LoginResponse) {
-                                    val loginResponse = mainResponse.success?.data as LoginResponse
-                                    if (loginResponse.is_register) {
-                                        edtPassword.visibility = View.VISIBLE
-                                    } else {
-                                        //open sign up page here
-                                        val signupActivity = Intent(applicationContext, SignupActivity::class.java)
-                                        signupActivity.putExtra("email", email)
-                                        startActivity(signupActivity)
+                        override fun onSuccess(mainResponse: CommonResponse<LoginResponse>) {
+                            if (mainResponse.status == true) {
+                                if (mainResponse.success?.data != null) {
+                                    if (mainResponse.success?.data is LoginResponse) {
+                                        val loginResponse =
+                                            mainResponse.success?.data as LoginResponse
+                                        if (loginResponse.is_register) {
+                                            edtPassword.visibility = View.VISIBLE
+                                        } else {
+                                            //open sign up page here
+                                            val signupActivity = Intent(
+                                                applicationContext,
+                                                SignupActivity::class.java
+                                            )
+                                            signupActivity.putExtra("email", email)
+                                            startActivity(signupActivity)
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
-                })
-            } else {
-                //login api
-                LoginHelper.loginApi(this, this, email, edtPassword.text.toString(),  object : ApiCallResponseCallBack {
-                    override fun onError(error: String) {
+                    })
+                } else {
+                    //login api
+                    LoginHelper.loginApi(
+                        this,
+                        this,
+                        email,
+                        edtPassword.text.toString(),
+                        object : ApiCallResponseCallBack {
+                            override fun onError(error: String) {
 
-                    }
+                            }
 
-                    override fun onSuccess(mainResponse: CommonResponse<LoginResponse>) {
-                        if (mainResponse.status == true) {
-                            if (mainResponse.success?.data != null) {
-                                if (mainResponse.success?.data is LoginResponse) {
-                                    val loginResponse = mainResponse.success?.data as LoginResponse
-                                    if (!loginResponse.accessToken.isNullOrEmpty()) {
-                                        val sessionStreamingActivity = Intent(applicationContext, SessionStreamingActivity::class.java)
-                                        startActivity(sessionStreamingActivity)
-                                        finish()
-                                    } else {
-                                        //open sign up page here
-                                        Toast.makeText(this@LoginActivity, "Something is wrong with login", Toast.LENGTH_LONG).show()
+                            override fun onSuccess(mainResponse: CommonResponse<LoginResponse>) {
+                                if (mainResponse.status == true) {
+                                    if (mainResponse.success?.data != null) {
+                                        if (mainResponse.success?.data is LoginResponse) {
+                                            val loginResponse =
+                                                mainResponse.success?.data as LoginResponse
+                                            if (!loginResponse.accessToken.isNullOrEmpty()) {
+                                                val sessionStreamingActivity = Intent(
+                                                    applicationContext,
+                                                    SessionStreamingActivity::class.java
+                                                )
+                                                startActivity(sessionStreamingActivity)
+                                                finish()
+                                            } else {
+                                                //open sign up page here
+                                                Toast.makeText(
+                                                    this@LoginActivity,
+                                                    "Something is wrong with login",
+                                                    Toast.LENGTH_LONG
+                                                ).show()
+                                            }
+                                        }
                                     }
                                 }
                             }
-                        }
-                    }
-                })
+                        })
+                }
+            }else {
+                Toast.makeText(this@LoginActivity, "Internet connection error", Toast.LENGTH_LONG).show()
             }
         }
     }
