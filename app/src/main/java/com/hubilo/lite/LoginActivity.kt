@@ -5,24 +5,27 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.hubilo.lite.apipack.ApiCallResponseCallBack
 import com.hubilo.lite.apipack.CommonResponse
 import com.hubilo.lite.apipack.LoginHelper
 import com.hubilo.lite.apipack.LoginResponse
+import com.hubilo.lite.databinding.ActivityLoginBinding
 
 class LoginActivity :AppCompatActivity() {
 
+    private lateinit var binding: ActivityLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
 
-        val edtUsername = findViewById<EditText>(R.id.username)
-        val edtPassword = findViewById<EditText>(R.id.password)
-        val btnLogin = findViewById<Button>(R.id.login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val edtUsername = binding.username
+        val edtPassword = binding.password
+        val btnLogin = binding.login
 
         edtUsername.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -58,7 +61,10 @@ class LoginActivity :AppCompatActivity() {
                                         edtPassword.visibility = View.VISIBLE
                                     } else {
                                         //open sign up page here
-
+                                        val signupActivity = Intent(applicationContext, SignupActivity::class.java)
+                                        signupActivity.putExtra("email", email)
+                                        startActivity(signupActivity)
+                                        finish()
                                     }
                                 }
                             }
@@ -78,7 +84,9 @@ class LoginActivity :AppCompatActivity() {
                                 if (mainResponse.success?.data is LoginResponse) {
                                     val loginResponse = mainResponse.success?.data as LoginResponse
                                     if (!loginResponse.accessToken.isNullOrEmpty()) {
-                                        
+                                        val sessionStreamingActivity = Intent(applicationContext, SessionStreamingActivity::class.java)
+                                        startActivity(sessionStreamingActivity)
+                                        finish()
                                     } else {
                                         //open sign up page here
                                         Toast.makeText(this@LoginActivity, "Something is wrong with login", Toast.LENGTH_LONG).show()
