@@ -15,14 +15,13 @@ class AllApiCalls(private val context: Context?) {
 
     fun mainResponseApiCall(
         activity: Activity?,
-        path: String?,
-        bodyParameterClass: BodyParameterClass?,
+        request: Request<UserRequest>,
         apiCallData: ApiCallResponseCallBack
     ) {
         if (apiInterfaceClass == null) {
-            apiInterfaceClass = APIClient.client?.create(APIInterface::class.java)
+            apiInterfaceClass = APIClient.getClient(activity?.applicationContext!!)?.create(APIInterface::class.java)
         }
-        //mainResponseCall = apiInterfaceClass.getSetSpeakerList(path, bodyParameterClass)
+        mainResponseCall = apiInterfaceClass?.checkEmail(request)
         mainResponseCall?.enqueue(object : Callback<CommonResponse<Any>?> {
             override fun onResponse(call: Call<CommonResponse<Any>?>, response: Response<CommonResponse<Any>?>) {
                 if (response.body() != null) {
