@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/linearTabLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_vertical"
+        android:animateLayoutChanges="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="24dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_centerInParent="true"
+                android:id="@+id/ivTabImage"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_horizontal"/>
+
+            <View
+                android:id="@+id/viewNotifier"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginStart="14dp"
+                android:visibility="gone"/>
+        </RelativeLayout>
+
+
+        <View
+            android:id="@+id/tvTabTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="6dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="center"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:text="LIVE CHAT"
+            android:textSize="10sp" />
+    </LinearLayout>
+</layout>
