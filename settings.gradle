@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "Hubilo Lite"
 include ':app'
 include ':hubilolite'
+include ':mylibrary'
