@@ -9,11 +9,11 @@ import androidx.core.graphics.ColorUtils
 
 class SessionStreaming : AppCompatActivity() {
 
-    //lateinit var binding: Sessio
-
+    lateinit var layoutSessionStreaming : LayoutSessionBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.layout_session)
+        layoutSessionStreaming = LayoutSessionBinding.inflate(layoutInflater)
+        setContentView(layoutSessionStreaming.root)
         //binding = DataBindingUtil.setContentView(this, R.layout.layout_login)
         val isDark = ColorUtils.calculateLuminance(window.statusBarColor) < 0.5
         val decorView = this.window.decorView
