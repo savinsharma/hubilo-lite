@@ -7,5 +7,11 @@ data class UserRequest(
     var email: String? = null,
 
     @field:SerializedName("is_otp_login")
-    var isOtpLogin: Boolean? = null
+    var isOtpLogin: Boolean? = null,
+
+    @field:SerializedName("mode")
+    var mode: String? = null,
+
+    @field:SerializedName("password")
+    var password: String? = null,
 )
