@@ -11,7 +11,7 @@ class AllApiCalls(private val context: Context?) {
     private var stateCallResponseCall: Call<StateCallResponse>? = null
     private val makeStateCallAPIInterface: MakeStateCallAPIInterface?*/
     private var apiInterfaceClass: APIInterface? = null
-    private var mainResponseCall: Call<CommonResponse<Any>>? = null
+    private var mainResponseCall: Call<CommonResponse<LoginResponse>>? = null
 
     fun mainResponseApiCall(
         activity: Activity?,
@@ -22,8 +22,8 @@ class AllApiCalls(private val context: Context?) {
             apiInterfaceClass = APIClient.getClient(activity?.applicationContext!!)?.create(APIInterface::class.java)
         }
         mainResponseCall = apiInterfaceClass?.checkEmail(request)
-        mainResponseCall?.enqueue(object : Callback<CommonResponse<Any>?> {
-            override fun onResponse(call: Call<CommonResponse<Any>?>, response: Response<CommonResponse<Any>?>) {
+        mainResponseCall?.enqueue(object : Callback<CommonResponse<LoginResponse>?> {
+            override fun onResponse(call: Call<CommonResponse<LoginResponse>?>, response: Response<CommonResponse<LoginResponse>?>) {
                 if (response.body() != null) {
                     apiCallData.onSuccess(response.body()!!)
                 } else {
@@ -31,7 +31,7 @@ class AllApiCalls(private val context: Context?) {
                 }
             }
 
-            override fun onFailure(call: Call<CommonResponse<Any>?>, t: Throwable) {
+            override fun onFailure(call: Call<CommonResponse<LoginResponse>?>, t: Throwable) {
                 apiCallData.onError(t.message + " ")
             }
         })

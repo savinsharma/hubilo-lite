@@ -1,5 +1,6 @@
 package com.hubilo.lite
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.hubilo.lite.apipack.ApiCallResponseCallBack
 import com.hubilo.lite.apipack.CommonResponse
 import com.hubilo.lite.apipack.LoginHelper
+import com.hubilo.lite.apipack.LoginResponse
 
 class LoginActivity :AppCompatActivity() {
 
@@ -27,9 +29,21 @@ class LoginActivity :AppCompatActivity() {
 
                 }
 
-                override fun onSuccess(mainResponse: CommonResponse<Any>) {
+                override fun onSuccess(mainResponse: CommonResponse<LoginResponse>) {
                     if(mainResponse.status == true){
-                        edtPassword.visibility = View.VISIBLE
+                        if(mainResponse.success?.data != null){
+                            if (mainResponse.success?.data is LoginResponse){
+                                val loginResponse = mainResponse.success?.data as LoginResponse
+                                if (loginResponse.is_register){
+                                    edtPassword.visibility = View.VISIBLE
+                                    val loginActivity = Intent(applicationContext, MainActivity::class.java)
+                                    startActivity(loginActivity)
+                                    finish()
+                                } else {
+                                    //open sign up page here
+                                }
+                            }
+                        }
                     }
                 }
             })
