@@ -11,7 +11,7 @@ class AllApiCalls(private val context: Context?) {
     private var stateCallResponseCall: Call<StateCallResponse>? = null
     private val makeStateCallAPIInterface: MakeStateCallAPIInterface?*/
     private var apiInterfaceClass: APIInterface? = null
-    private var mainResponseCall: Call<CommonResponse>? = null
+    private var mainResponseCall: Call<CommonResponse<Any>>? = null
 
     fun mainResponseApiCall(
         activity: Activity?,
@@ -23,8 +23,8 @@ class AllApiCalls(private val context: Context?) {
             apiInterfaceClass = APIClient.client?.create(APIInterface::class.java)
         }
         //mainResponseCall = apiInterfaceClass.getSetSpeakerList(path, bodyParameterClass)
-        mainResponseCall?.enqueue(object : Callback<CommonResponse?> {
-            override fun onResponse(call: Call<CommonResponse?>, response: Response<CommonResponse?>) {
+        mainResponseCall?.enqueue(object : Callback<CommonResponse<Any>?> {
+            override fun onResponse(call: Call<CommonResponse<Any>?>, response: Response<CommonResponse<Any>?>) {
                 if (response.body() != null) {
                     apiCallData.onSuccess(response.body()!!)
                 } else {
@@ -32,7 +32,7 @@ class AllApiCalls(private val context: Context?) {
                 }
             }
 
-            override fun onFailure(call: Call<CommonResponse?>, t: Throwable) {
+            override fun onFailure(call: Call<CommonResponse<Any>?>, t: Throwable) {
                 apiCallData.onError(t.message + " ")
             }
         })
