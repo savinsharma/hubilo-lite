@@ -14,9 +14,9 @@ object LoginHelper {
 
         val payload = Payload(loginUserRequest)
         val request = Request(payload)
-        val apiCalls= AllApiCalls.singleInstance(this)
+        val apiCalls= AllApiCalls.singleInstance(context)
 
-        apiCalls?.mainResponseApiCall(this, request, object : ApiCallResponseCallBack{
+        apiCalls?.mainResponseApiCall(activity, request, object : ApiCallResponseCallBack{
             override fun onError(error: String) {
 
             }
