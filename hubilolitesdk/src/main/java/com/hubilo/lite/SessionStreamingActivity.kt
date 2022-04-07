@@ -538,17 +538,17 @@ class SessionStreamingActivity : AppCompatActivity(), WebViewYoutubeCallBacks{
         }
     }
 
-    private fun changeBottomSheetHeight() {
+    /*private fun changeBottomSheetHeight() {
         val layoutParams: ViewGroup.LayoutParams = (binding.bottomSheet.bottomSheet as View).layoutParams
         val layoutParamsBottomMargin = binding.mainLayout.bottomSheetDrawer.layoutParams as CoordinatorLayout.LayoutParams
         if (!mIsLandscape && binding.bottomSheet.bottomSheet.visibility == View.VISIBLE) {
-            /*if (theme.resolveAttribute(R.attr.actionBarSize, typedValue, true)) {
+            *//*if (theme.resolveAttribute(R.attr.actionBarSize, typedValue, true)) {
                 actionBarHeight =
                     TypedValue.complexToDimensionPixelSize(
                         typedValue.data,
                         resources.displayMetrics
                     )
-            }*/
+            }*//*
             binding.bottomSheet.bottomSheet.visible()
             var fullHeight: Int = 0
             if (Resources.getSystem().configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
@@ -600,7 +600,7 @@ class SessionStreamingActivity : AppCompatActivity(), WebViewYoutubeCallBacks{
                 tabName.add(engagements[i]?.name ?: "")
                 tabIcons.add(engagements[i]?.svgImage ?: "")
 
-                /*mSectionsPagerAdapter.addFragment(
+                *//*mSectionsPagerAdapter.addFragment(
                     LoungeChatFragment.newInstance(
                         BundleConstants.SESSION,
                         agendaId.toString(),
@@ -608,11 +608,11 @@ class SessionStreamingActivity : AppCompatActivity(), WebViewYoutubeCallBacks{
                         tabName[i],
                         binding.mainLayout.tvSessionTitle.text.toString(),intent.getBooleanExtra("SessionTagStatus",false)
                     )
-                )*/
+                )*//*
             }
 
-            /*binding.bottomSheet.viewPager.adapter = mSectionsPagerAdapter
-            binding.bottomSheet.tabLoungeRoom.setupWithViewPager(binding.bottomSheet.viewPager)*/
+            *//*binding.bottomSheet.viewPager.adapter = mSectionsPagerAdapter
+            binding.bottomSheet.tabLoungeRoom.setupWithViewPager(binding.bottomSheet.viewPager)*//*
 
             if (engagements.size <= 4) {
                 binding.bottomSheet.tabLoungeRoom.tabMode = TabLayout.MODE_FIXED
@@ -657,16 +657,16 @@ class SessionStreamingActivity : AppCompatActivity(), WebViewYoutubeCallBacks{
             textView.textSize = 8F
 
             //val drawable = getDrawableFromSVGString(tabIcons[i])
-            /*Glide.with(this).load(drawable)
-                .into(imageView)*/
+            *//*Glide.with(this).load(drawable)
+                .into(imageView)*//*
 
             textView.text = title
             textView.gravity = Gravity.CENTER
 
-            /*var color = ThemeColorHelper.getParsedColor(this@SessionDetailActivity,getString(R.string.accent_color))
+            *//*var color = ThemeColorHelper.getParsedColor(this@SessionDetailActivity,getString(R.string.accent_color))
             if (!collapse) {
                 color = ThemeColorHelper.getParsedColor(this@SessionDetailActivity,getString(R.string.accent_color))
-            }*/
+            }*//*
             textView.setTextColor(Color.BLACK)
         } else {
             for (i in 0 until viewPager.adapter!!.count) {
@@ -683,5 +683,5 @@ class SessionStreamingActivity : AppCompatActivity(), WebViewYoutubeCallBacks{
                 binding.bottomSheet.tabLoungeRoom.getTabAt(i)!!.customView = view
             }
         }
-    }
+    }*/
 }

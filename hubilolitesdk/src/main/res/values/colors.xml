@@ -9,4 +9,5 @@
     <color name="color_808080">#808080</color>
     <color name="color_202020">#202020</color>
     <color name="color_20_black">#33000000</color>
+    <color name="color_transparent">#00000000</color>
 </resources>
