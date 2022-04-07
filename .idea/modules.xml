@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Hubilo_Lite.iml" filepath="$PROJECT_DIR$/.idea/modules/Hubilo_Lite.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Hubilo_Lite.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Hubilo_Lite.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hubilolite/Hubilo_Lite.hubilolite.iml" filepath="$PROJECT_DIR$/.idea/modules/hubilolite/Hubilo_Lite.hubilolite.iml" />
     </modules>
   </component>
 </project>
