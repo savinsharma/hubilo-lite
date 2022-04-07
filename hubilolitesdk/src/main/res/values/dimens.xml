@@ -6,4 +6,6 @@
     <dimen name="offset">8dp</dimen>
     <dimen name="offset20">20dp</dimen>
     <dimen name="pageMarginAndOffset">15dp</dimen>
+    <dimen name="_50dp">50dp</dimen>
+    <dimen name="_6dp">6dp</dimen>
 </resources>
