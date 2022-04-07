@@ -34,5 +34,11 @@ data class UserRequest(
     var event_id: String? = null,
 
     @field:SerializedName("language")
-    var language: Int? = null
+    var language: Int? = null,
+
+    @field:SerializedName("agenda_id")
+    var agenda_id: String? = null,
+
+    @field:SerializedName("is_stream")
+    var is_stream: Boolean? = null
 )

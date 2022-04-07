@@ -67,6 +67,20 @@ object LoginHelper {
         apiCalls?.signInApi(activity, request, apiCallResponseCallBack)
         println("Help me login")
     }
+
+    fun sessionDetail(activity: Activity, context: Context, agenda_id: String, sessionApiCallResponseCallBack: SessionApiCallResponseCallBack) {
+        val loginUserRequest = UserRequest()
+        loginUserRequest.agenda_id = agenda_id
+        loginUserRequest.is_stream = true
+
+        val payload = Payload(loginUserRequest)
+        val request = Request(payload)
+        val apiCalls= AllApiCalls.singleInstance(context)
+
+        apiCalls?.sessionId(activity, request, sessionApiCallResponseCallBack)
+        println("Help me login")
+    }
+
     /**
      * Helper method to check validation fo email input field
      * [showError] to show error or not

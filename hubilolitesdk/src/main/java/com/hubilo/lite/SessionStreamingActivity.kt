@@ -1,11 +1,13 @@
 package com.hubilo.lite
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.ColorUtils
+import com.hubilo.lite.apipack.*
 import com.hubilo.lite.databinding.LayoutSessionBinding
 
 class SessionStreamingActivity : AppCompatActivity() {
@@ -27,5 +29,28 @@ class SessionStreamingActivity : AppCompatActivity() {
             }
         }
         decorView.systemUiVisibility = systemUiVisibilityFlags
+        sessionDetailApiCall()
+    }
+
+    fun sessionDetailApiCall(){
+        val sessionId = SharedPreferenceUtil.getInstance(this)?.getData(PreferenceKeyConstants.AGENDA_ID, "")?:""
+        if(sessionId.isNotEmpty()){
+            LoginHelper.sessionDetail(this, this, sessionId, object : SessionApiCallResponseCallBack {
+                override fun onError(error: String) {
+
+                }
+
+                override fun onSuccess(mainResponse: CommonResponse<SessionDetailResponse>) {
+                    if (mainResponse.status == true) {
+                        if (mainResponse.success?.data != null) {
+                            if (mainResponse.success?.data is SessionDetailResponse) {
+                                val sessionResponse = mainResponse.success?.data as SessionDetailResponse
+
+                            }
+                        }
+                    }
+                }
+            })
+        }
     }
 }
