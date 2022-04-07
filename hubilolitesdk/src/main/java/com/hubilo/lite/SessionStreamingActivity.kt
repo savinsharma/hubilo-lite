@@ -7,15 +7,10 @@ import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.PorterDuff
-import android.graphics.drawable.Drawable
-import android.graphics.drawable.GradientDrawable
-import android.graphics.drawable.LayerDrawable
 import android.net.Uri
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import android.os.PersistableBundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.Gravity
@@ -32,17 +27,11 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.ColorUtils
 import com.hubilo.lite.apipack.*
-import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
-import com.bumptech.glide.Glide
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.tabs.TabLayout
-import com.google.gson.Gson
-import com.google.gson.internal.LinkedTreeMap
+import com.hubilo.lite.apipack.SessionDetailResponse
 import com.hubilo.lite.databinding.LayoutSessionBinding
-import org.json.JSONObject
 import java.io.IOException
-import java.net.URLDecoder
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
@@ -309,17 +298,17 @@ class SessionStreamingActivity : AppCompatActivity(), WebViewYoutubeCallBacks{
         when (isPlaying) {
             1 -> {
                 if (binding.mainLayout.webviewProgress.visibility == View.VISIBLE)
-                    binding.mainLayout.webviewProgress.visibility = View.GONE;
+                    binding.mainLayout.webviewProgress.visibility = View.GONE
                 binding.mainLayout.play.setImageDrawable(ResourcesCompat.getDrawable(resources, android.R.drawable.ic_media_pause, theme))
             }
             3 -> {
                 if (binding.mainLayout.webviewProgress.visibility == View.GONE)
-                    binding.mainLayout.webviewProgress.visibility = View.VISIBLE;
+                    binding.mainLayout.webviewProgress.visibility = View.VISIBLE
                 binding.mainLayout.play.setImageDrawable(ResourcesCompat.getDrawable(resources, android.R.drawable.ic_media_pause, theme))
             }
             else -> {
                 if (binding.mainLayout.webviewProgress.visibility == View.VISIBLE)
-                    binding.mainLayout.webviewProgress.visibility = View.GONE;
+                    binding.mainLayout.webviewProgress.visibility = View.GONE
                 binding.mainLayout.play.setImageDrawable(ResourcesCompat.getDrawable(resources, android.R.drawable.ic_media_play,  theme))
             }
         }
@@ -361,9 +350,9 @@ class SessionStreamingActivity : AppCompatActivity(), WebViewYoutubeCallBacks{
 
     //convert seconds to time that can be shown
     public fun convertSecondsToHoursAndMinutes(seconds : Int, textView : TextView) {
-        val hr = seconds / 3600;
-        val min = (seconds % 3600) / 60;
-        val sec = (seconds % 3600) % 60;
+        val hr = seconds / 3600
+        val min = (seconds % 3600) / 60
+        val sec = (seconds % 3600) % 60
 
         var time = ""
 
@@ -373,7 +362,7 @@ class SessionStreamingActivity : AppCompatActivity(), WebViewYoutubeCallBacks{
 
         time = if (min > 0) {
             if (sec > 0) {
-                time + changeTimeToTwoDigit(min.toString()) + ":" + changeTimeToTwoDigit(sec.toString());
+                time + changeTimeToTwoDigit(min.toString()) + ":" + changeTimeToTwoDigit(sec.toString())
             } else {
                 time + changeTimeToTwoDigit(min.toString()) + ":00"
             }
@@ -551,7 +540,7 @@ class SessionStreamingActivity : AppCompatActivity(), WebViewYoutubeCallBacks{
                         resources.displayMetrics
                     )
             }*/
-            binding.bottomSheet.bottomSheet.visible()
+            binding.bottomSheet.bottomSheet.visibility = View.VISIBLE
             var fullHeight: Int = 0
             if (Resources.getSystem().configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 frmLiveSessionHeight =
@@ -690,7 +679,7 @@ class SessionStreamingActivity : AppCompatActivity(), WebViewYoutubeCallBacks{
     fun sessionDetailApiCall(){
         val sessionId = SharedPreferenceUtil.getInstance(this)?.getData(PreferenceKeyConstants.AGENDA_ID, "")?:""
         if(sessionId.isNotEmpty()){
-            LoginHelper.sessionDetail(this, this, sessionId, object : SessionApiCallResponseCallBack {
+            LoginHelper.sessionDetail(this, this, sessionId, object : SessionApiCallResponseCallBack{
                 override fun onError(error: String) {
 
                 }
