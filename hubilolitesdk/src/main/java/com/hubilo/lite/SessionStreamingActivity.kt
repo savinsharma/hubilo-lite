@@ -6,10 +6,12 @@ import android.os.PersistableBundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.ColorUtils
+import com.hubilo.lite.databinding.LayoutSessionBinding
 
 class SessionStreamingActivity : AppCompatActivity() {
 
-    lateinit var layoutSessionStreaming : LayoutSessionBinding
+    private lateinit var binding: LayoutSessionBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         layoutSessionStreaming = LayoutSessionBinding.inflate(layoutInflater)
