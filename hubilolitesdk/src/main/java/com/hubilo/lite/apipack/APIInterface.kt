@@ -12,6 +12,6 @@ interface APIInterface {
     @POST("users/check-email")
     fun checkEmail(
         @Body userRequest: Request<UserRequest>
-    ): Call<CommonResponse<Any>>
+    ): Call<CommonResponse<LoginResponse>>
 
 }
