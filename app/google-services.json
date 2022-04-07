@@ -1,0 +1,134 @@
+{
+  "project_info": {
+    "project_number": "378095302726",
+    "project_id": "v2-wl-53f12",
+    "storage_bucket": "v2-wl-53f12.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:378095302726:android:74dd2971b46bed80a1b247",
+        "android_client_info": {
+          "package_name": "com.hubilo.internalevent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "378095302726-gmtrb46n840ovgj46r8l3hn8qnq5aknn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hubilo.internalevent",
+            "certificate_hash": "259843ba4865f02de8f5a01b92a79a1d7e645259"
+          }
+        },
+        {
+          "client_id": "378095302726-ln51ld9bt71lv9ebektntc1ubeipcd0b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuXZIr5Qo4hSjVsdttdll5D54jvJoqIiw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "378095302726-ln51ld9bt71lv9ebektntc1ubeipcd0b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "378095302726-5keo3e71ajegbq22i57pe3qvoiu2vo78.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.hubilo.internalevent"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:378095302726:android:3642cc851e05facca1b247",
+        "android_client_info": {
+          "package_name": "com.hubilo.reimagine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "378095302726-ln51ld9bt71lv9ebektntc1ubeipcd0b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuXZIr5Qo4hSjVsdttdll5D54jvJoqIiw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "378095302726-ln51ld9bt71lv9ebektntc1ubeipcd0b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "378095302726-5keo3e71ajegbq22i57pe3qvoiu2vo78.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.hubilo.internalevent"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:378095302726:android:243f8549b414bb11a1b247",
+        "android_client_info": {
+          "package_name": "com.hubilo.v2.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "378095302726-88hs0v01l72e0hvts1mfe08as8urrli0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hubilo.v2.dev",
+            "certificate_hash": "53e5f21e005af3c317bc529565b53368e4b477a6"
+          }
+        },
+        {
+          "client_id": "378095302726-ln51ld9bt71lv9ebektntc1ubeipcd0b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuXZIr5Qo4hSjVsdttdll5D54jvJoqIiw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "378095302726-ln51ld9bt71lv9ebektntc1ubeipcd0b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "378095302726-5keo3e71ajegbq22i57pe3qvoiu2vo78.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.hubilo.internalevent"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

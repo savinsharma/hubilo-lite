@@ -42,12 +42,9 @@ class LoginActivity :AppCompatActivity() {
 
         btnLogin.setOnClickListener {
             val email = edtUsername.text.toString().trim()
-            //LoginHelper.validation(edtPassword, applicationContext, true)
-            if(edtPassword.visibility == View.GONE) {
+            if(edtPassword.visibility == View.GONE && LoginHelper.validation(edtUsername, applicationContext, true)) {
                 //check email api
-                val token =
-                    "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7fSwiZXZlbnQiOnsib3JnYW5pc2VyX2lkIjo2NjU5NCwiZXZlbnRfaWQiOjExNTA1LCJkZXZpY2VfdHlwZSI6IldFQiIsImFwaV9rZXkiOiJkODVmYWIyODAyOGQ0MDdlYTc5NTBkNzA0YTQ4NjUwOCIsImxhbmd1YWdlX21ldGFfaWQiOjB9fQ.nxCIISI4DEsxyEDBEpli0k45-a-gLfkTnHHw9zqhLzs"
-                LoginHelper.checkLogin(this, this, email, token, object : ApiCallResponseCallBack {
+                LoginHelper.checkLogin(this, this, email, object : ApiCallResponseCallBack {
                     override fun onError(error: String) {
 
                     }
@@ -64,7 +61,6 @@ class LoginActivity :AppCompatActivity() {
                                         val signupActivity = Intent(applicationContext, SignupActivity::class.java)
                                         signupActivity.putExtra("email", email)
                                         startActivity(signupActivity)
-                                        finish()
                                     }
                                 }
                             }
@@ -99,4 +95,5 @@ class LoginActivity :AppCompatActivity() {
             }
         }
     }
+
 }
