@@ -3,9 +3,64 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2006340579710145" />
-        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.23645833333333333" />
+        <entry key="hubilolite/src/main/res/drawable/black_gradient_bottom.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/circle_without_border_shape.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/circler_with_border_shape.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/ic_add_my_session.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/ic_back_toolbar.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/ic_baseline_picture_in_picture_alt_24.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/ic_calendar.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/ic_cancel.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/ic_chat.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/ic_down_arrow.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/ic_fullscreen_24.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/ic_note.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/ic_people.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/ic_send_chat_lounge.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/ic_table_info_lounge.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/ic_time_left.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/ic_users.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/progress_bar_thumb.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/progress_selector.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/rounded_corners_reception_toolbar.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/rounded_corners_top.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/rounded_corners_top_session.xml" value="0.4085" />
+        <entry key="hubilolite/src/main/res/drawable/rounded_corners_with_bg.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/rounded_dialog.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/drawable/rounded_drawable_grey_filled_radius20.xml" value="0.1615" />
+        <entry key="hubilolite/src/main/res/layout/layout_header_common_ui.xml" value="0.409375" />
+        <entry key="hubilolite/src/main/res/layout/layout_session.xml" value="0.22777777777777777" />
+        <entry key="hubilolite/src/main/res/layout/layout_session_bottom_tabs.xml" value="0.1" />
+        <entry key="hubilolite/src/main/res/layout/layout_session_list_detail_bottom_sheet.xml" value="0.409375" />
+        <entry key="hubilolite/src/main/res/layout/layout_session_speaker_item.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/black_gradient_bottom.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/circle_without_border_shape.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/circler_with_border_shape.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/ic_add_my_session.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/ic_back_toolbar.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/ic_baseline_picture_in_picture_alt_24.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/ic_calendar.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/ic_cancel.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/ic_chat.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/ic_down_arrow.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/ic_fullscreen_24.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/ic_note.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/ic_people.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/ic_send_chat_lounge.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/ic_table_info_lounge.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/ic_time_left.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/ic_users.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/progress_bar_thumb.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/progress_selector.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/rounded_corners_reception_toolbar.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/rounded_corners_top.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/rounded_corners_top_session.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/rounded_corners_with_bg.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/rounded_dialog.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/drawable/rounded_drawable_grey_filled_radius20.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/layout/layout_session.xml" value="0.1" />
+        <entry key="hubilolitesdk/src/main/res/layout/layout_session_list_detail_bottom_sheet.xml" value="0.1" />
       </map>
     </option>
   </component>

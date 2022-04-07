@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <color name="appColor">#4E59B8</color>
+    <color name="black">#000000</color>
+    <color name="color_202020">#202020</color>
+    <color name="color_20_black">#33000000</color>
+    <color name="color_808080">#808080</color>
+    <color name="color_e0e0e0">#e0e0e0</color>
+    <color name="color_f0f0f0">#F0F0F0</color>
+    <color name="feed_img_bg">#EBEBEB</color>
+    <color name="white">#FFFFFFFF</color>
+    <dimen name="_10dp">10dp</dimen>
+    <dimen name="_56dp">56dp</dimen>
+    <dimen name="offset">8dp</dimen>
+    <dimen name="offset20">20dp</dimen>
+    <dimen name="pageMargin">8dp</dimen>
+    <dimen name="pageMarginAndOffset">15dp</dimen>
+    <string name="internet_err">No Internet Connection</string>
+    <style name="All.ImageView.Corner" parent="">
+        <item name="cornerSizeTopRight">10dp</item>
+        <item name="cornerSizeTopLeft">10dp</item>
+        <item name="cornerSizeBottomLeft">10dp</item>
+        <item name="cornerSizeBottomRight">10dp</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
+    <style name="All.ImageView.Corner.Round" parent="">
+        <item name="cornerSizeTopRight">15dp</item>
+        <item name="cornerSizeTopLeft">15dp</item>
+        <item name="cornerSizeBottomLeft">15dp</item>
+        <item name="cornerSizeBottomRight">15dp</item>
+        <item name="cornerFamily">rounded</item>
+
+    </style>
+    <style name="AppDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="AppThemeTransparent" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+    </style>
+    <style name="BottomSheetStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+    <style name="CropTheme" parent="Theme.AppCompat">
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    <style name="CustomBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+    </style>
+    <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/holo_red_dark</item>
+    </style>
+    <style name="GFMinimalNotificationStyle">
+        <item name="android:theme">@style/Theme.AppCompat.Light.NoActionBar</item>
+        <item name="android:minWidth">-1px</item>
+        <item name="android:maxWidth">-1px</item>
+        <item name="android:background">#FFFFFF</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <!--<item name="android:layout_marginTop">20dp</item>-->
+        <item name="elevation">6dp</item>
+    </style>
+    <style name="MyDatePickerStyle" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">#292929</item>
+        <item name="android:colorAccent" ns1:ignore="NewApi">#292929</item>
+        <item name="android:headerBackground">#292929</item>
+    </style>
+    <style name="MyTransparentTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:splitMotionEvents">false</item>
+    </style>
+    <style name="SwitchButtonTheme">
+        <item name="colorControlActivated">@color/appColor</item>
+    </style>
+    <style name="Theme.UserDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    <style name="Theme.Welcome" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    <style name="Theme_Dialog" parent="android:Theme.Holo.Dialog">
+        <item name="android:windowMinWidthMajor">100%</item>
+        <item name="android:windowMinWidthMinor">100%</item>
+    </style>
+    <style name="Top.ImageView.Corner" parent="">
+        <item name="cornerSizeTopRight">12dp</item>
+        <item name="cornerSizeTopLeft">12dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
+    <style name="date_picker" parent="android:Theme.Material.Light.Dialog" ns1:ignore="NewApi">
+        <item name="colorAccent">#292929</item>
+        <item name="android:colorAccent">#292929</item>
+        <!--<item name="android:datePickerStyle">@style/MyDatePickerStyle</item>-->
+        <item name="android:colorPrimary">#292929</item>
+        <item name="android:colorPrimaryDark">#292929</item>
+        <item name="android:textColorPrimary">#292929</item>
+    </style>
+    <style name="full_screen_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    <style name="time_picker" parent="@android:style/Widget.Material.Light.TimePicker" ns1:ignore="NewApi">
+        <!--<item name="colorAccent">#292929</item>
+        <item name="android:colorAccent" tools:ignore="NewApi">#292929</item>
+        <item name="android:headerBackground">#292929</item>
+        <item name="android:yearListSelectorColor" tools:ignore="NewApi">#111111</item>
+        <item name="android:textColorPrimaryInverse">@color/white</item>
+        <item name="android:colorControlActivated" tools:ignore="NewApi">@color/rejected</item>-->
+        <item name="colorAccent">#292929</item>
+        <item name="android:colorAccent" ns1:ignore="NewApi">#292929</item>
+        <item name="android:headerBackground">#EEEEEE</item>
+        <item name="android:timePickerMode" ns1:ignore="NewApi">clock</item>
+        <item name="android:numbersTextColor" ns1:ignore="NewApi">#292929</item>
+        <item name="android:numbersInnerTextColor" ns1:ignore="NewApi">#292929</item>
+        <item name="android:numbersSelectorColor" ns1:ignore="NewApi">#ffffff</item>
+        <!--<item name="android:numbersBackgroundColor" tools:ignore="NewApi">#292929</item>-->
+        <item name="android:amPmTextColor" ns1:ignore="NewApi">#292929</item>
+    </style>
+</resources>
