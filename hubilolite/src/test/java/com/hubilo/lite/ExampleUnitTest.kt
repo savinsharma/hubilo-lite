@@ -1,4 +1,4 @@
-package com.hubilo.hubilolite
+package com.hubilo.lite
 
 import org.junit.Test
 
