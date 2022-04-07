@@ -17,6 +17,10 @@
             android:exported="false"
             android:label="@string/title_activity_login" />
         <activity
+            android:name=".SignupActivity"
+            android:exported="false"
+            android:label="@string/title_activity_signup" />
+        <activity
             android:name=".SessionStreamingActivity"
             android:exported="true"
             android:screenOrientation="portrait"

@@ -4,16 +4,29 @@ import android.app.Activity
 import android.content.Context
 import android.text.TextUtils
 import android.util.Patterns
-import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import com.hubilo.lite.R
 
 object LoginHelper {
 
-    fun checkLogin(activity: Activity, context: Context, email:String, token:String, apiCallResponseCallBack: ApiCallResponseCallBack){
-        SharedPreferenceUtil.getInstance(context)?.saveData(PreferenceKeyConstants.ACCESSTOKEN, token)
+    fun webStateApi(activity: Activity, context: Context, event_id:String, apiCallResponseCallBack: ApiCallResponseCallBack){
 
+        val loginUserRequest = UserRequest()
+        loginUserRequest.source = PreferenceKeyConstants.COMMUNITY
+        loginUserRequest.language = 34
+        loginUserRequest.app_version = "1.0.0"
+        loginUserRequest.device_type = PreferenceKeyConstants.ANDROID
+        loginUserRequest.event_id = event_id
+        val payload = Payload(loginUserRequest)
+        val request = Request(payload)
+        val apiCalls= AllApiCalls.singleInstance(context)
+
+        apiCalls?.webStateApi(activity, request, apiCallResponseCallBack)
+        println("Help me check email")
+    }
+
+    fun checkLogin(activity: Activity, context: Context, email:String, apiCallResponseCallBack: ApiCallResponseCallBack){
         val loginUserRequest = UserRequest()
         loginUserRequest.email = email
         loginUserRequest.isOtpLogin = false
@@ -37,6 +50,21 @@ object LoginHelper {
         val apiCalls= AllApiCalls.singleInstance(context)
 
         apiCalls?.login(activity, request, apiCallResponseCallBack)
+        println("Help me login")
+    }
+
+    fun signInApi(activity: Activity, context: Context, email: String, firstName:String, lastName:String, password:String, apiCallResponseCallBack: ApiCallResponseCallBack) {
+        val loginUserRequest = UserRequest()
+        loginUserRequest.firstName = firstName
+        loginUserRequest.lastName = lastName
+        loginUserRequest.email = email
+        loginUserRequest.password = password.trim()
+
+        val payload = Payload(loginUserRequest)
+        val request = Request(payload)
+        val apiCalls= AllApiCalls.singleInstance(context)
+
+        apiCalls?.signInApi(activity, request, apiCallResponseCallBack)
         println("Help me login")
     }
     /**

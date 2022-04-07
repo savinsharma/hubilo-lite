@@ -13,6 +13,30 @@ class AllApiCalls(private val context: Context?) {
     private var apiInterfaceClass: APIInterface? = null
     private var mainResponseCall: Call<CommonResponse<LoginResponse>>? = null
 
+    fun webStateApi(
+        activity: Activity?,
+        request: Request<UserRequest>,
+        apiCallData: ApiCallResponseCallBack
+    ) {
+        if (apiInterfaceClass == null) {
+            apiInterfaceClass = APIClient.getClient(activity?.applicationContext!!)?.create(APIInterface::class.java)
+        }
+        mainResponseCall = apiInterfaceClass?.webStateApi(request)
+        mainResponseCall?.enqueue(object : Callback<CommonResponse<LoginResponse>?> {
+            override fun onResponse(call: Call<CommonResponse<LoginResponse>?>, response: Response<CommonResponse<LoginResponse>?>) {
+                if (response.body() != null) {
+                    apiCallData.onSuccess(response.body()!!)
+                } else {
+                    apiCallData.onError(" ")
+                }
+            }
+
+            override fun onFailure(call: Call<CommonResponse<LoginResponse>?>, t: Throwable) {
+                apiCallData.onError(t.message + " ")
+            }
+        })
+    }
+
     fun checkEmail(
         activity: Activity?,
         request: Request<UserRequest>,
@@ -53,6 +77,52 @@ class AllApiCalls(private val context: Context?) {
                     if(!response.body()?.success?.data?.accessToken.isNullOrEmpty()){
                         val token = response.body()?.success?.data?.accessToken
                         SharedPreferenceUtil.getInstance(context)?.saveData(PreferenceKeyConstants.ACCESSTOKEN, token)
+                        SharedPreferenceUtil.getInstance(context)
+                            ?.saveData(
+                                PreferenceKeyConstants.IS_LOGGEDIN,
+                                true
+                            )
+                    }
+                    if(!response.body()?.success?.data?.agenda_id.isNullOrEmpty()){
+                        val agenda_id = response.body()?.success?.data?.agenda_id
+                        SharedPreferenceUtil.getInstance(context)?.saveData(PreferenceKeyConstants.AGENDA_ID, agenda_id)
+                    }
+                    apiCallData.onSuccess(response.body()!!)
+                } else {
+                    apiCallData.onError(" ")
+                }
+            }
+
+            override fun onFailure(call: Call<CommonResponse<LoginResponse>?>, t: Throwable) {
+                apiCallData.onError(t.message + " ")
+            }
+        })
+    }
+
+    fun signInApi(
+        activity: Activity?,
+        request: Request<UserRequest>,
+        apiCallData: ApiCallResponseCallBack
+    ) {
+        if (apiInterfaceClass == null) {
+            apiInterfaceClass = APIClient.getClient(activity?.applicationContext!!)?.create(APIInterface::class.java)
+        }
+        mainResponseCall = apiInterfaceClass?.signInApi(request)
+        mainResponseCall?.enqueue(object : Callback<CommonResponse<LoginResponse>?> {
+            override fun onResponse(call: Call<CommonResponse<LoginResponse>?>, response: Response<CommonResponse<LoginResponse>?>) {
+                if (response.body() != null) {
+                    if(!response.body()?.success?.data?.accessToken.isNullOrEmpty()){
+                        val token = response.body()?.success?.data?.accessToken
+                        SharedPreferenceUtil.getInstance(context)?.saveData(PreferenceKeyConstants.ACCESSTOKEN, token)
+                        SharedPreferenceUtil.getInstance(context)
+                            ?.saveData(
+                                PreferenceKeyConstants.IS_LOGGEDIN,
+                                true
+                            )
+                    }
+                    if(!response.body()?.success?.data?.agenda_id.isNullOrEmpty()){
+                        val agenda_id = response.body()?.success?.data?.agenda_id
+                        SharedPreferenceUtil.getInstance(context)?.saveData(PreferenceKeyConstants.AGENDA_ID, agenda_id)
                     }
                     apiCallData.onSuccess(response.body()!!)
                 } else {

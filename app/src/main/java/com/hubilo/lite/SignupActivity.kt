@@ -1,12 +1,14 @@
 package com.hubilo.lite
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.hubilo.lite.apipack.ApiCallResponseCallBack
+import com.hubilo.lite.apipack.CommonResponse
+import com.hubilo.lite.apipack.LoginHelper
+import com.hubilo.lite.apipack.LoginResponse
 import com.hubilo.lite.databinding.ActivitySignupBinding
-import com.hubilo.lite.databinding.ActivitySplashScreenBinding
 
 class SignupActivity : AppCompatActivity() {
 
@@ -17,6 +19,8 @@ class SignupActivity : AppCompatActivity() {
 
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val bundle = intent.extras
         val email = bundle?.getString("email", "")?:""
@@ -43,9 +47,39 @@ class SignupActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please enter password", Toast.LENGTH_LONG).show()
             } else if(confirmPassword.isNullOrEmpty()){
                 Toast.makeText(this, "Please enter confirm password", Toast.LENGTH_LONG).show()
+            } else if(confirmPassword != password){
+                Toast.makeText(this, "Confirm password should match password", Toast.LENGTH_LONG).show()
             } else {
                 //make sign up api
+                LoginHelper.signInApi(this, this, email, firstName, lastName, password,  object : ApiCallResponseCallBack {
+                    override fun onError(error: String) {
+
+                    }
+
+                    override fun onSuccess(mainResponse: CommonResponse<LoginResponse>) {
+                        if (mainResponse.status == true) {
+                            if (mainResponse.success?.data != null) {
+                                if (mainResponse.success?.data is LoginResponse) {
+                                    val loginResponse = mainResponse.success?.data as LoginResponse
+                                    if (!loginResponse.accessToken.isNullOrEmpty()) {
+                                        val sessionStreamingActivity = Intent(applicationContext, SessionStreamingActivity::class.java)
+                                        startActivity(sessionStreamingActivity)
+                                        finish()
+                                    } else {
+                                        //open sign up page here
+                                        Toast.makeText(this@SignupActivity, "Something is wrong with login", Toast.LENGTH_LONG).show()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                })
             }
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }
