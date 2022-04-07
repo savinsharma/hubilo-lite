@@ -2,4 +2,6 @@
 <resources>
     <string name="internet_err">No Internet Connection</string>
     <string name="app_name">hubilo lite</string>
+    <string name="INVALID_EMAIL">Invalid Email Address</string>
+    <string name="EMAIL_FORMAT_IS_INCORRECT">Email format is incorrect</string>
 </resources>

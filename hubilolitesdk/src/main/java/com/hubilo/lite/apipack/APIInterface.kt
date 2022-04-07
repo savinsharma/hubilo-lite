@@ -14,4 +14,10 @@ interface APIInterface {
         @Body userRequest: Request<UserRequest>
     ): Call<CommonResponse<LoginResponse>>
 
+    // Login Api
+    @POST("users/login")
+    fun login(
+        @Body userRequest: Request<UserRequest>
+    ): Call<CommonResponse<LoginResponse>>
+
 }

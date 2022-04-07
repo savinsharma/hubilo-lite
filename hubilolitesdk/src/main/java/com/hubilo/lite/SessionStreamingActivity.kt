@@ -7,7 +7,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.ColorUtils
 
-class SessionStreaming : AppCompatActivity() {
+class SessionStreamingActivity : AppCompatActivity() {
 
     lateinit var layoutSessionStreaming : LayoutSessionBinding
     override fun onCreate(savedInstanceState: Bundle?) {

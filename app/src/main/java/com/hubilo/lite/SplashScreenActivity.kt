@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import com.hubilo.lite.apipack.PreferenceKeyConstants
+import com.hubilo.lite.apipack.SharedPreferenceUtil
 import com.hubilo.lite.databinding.ActivitySplashScreenBinding
 
 /**
@@ -31,9 +33,15 @@ class SplashScreenActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         Handler(Looper.getMainLooper()).postDelayed({
-           val loginActivity = Intent(applicationContext, LoginActivity::class.java)
-           startActivity(loginActivity)
-           finish()
+            val accessToken = SharedPreferenceUtil.getInstance(this)?.getData(PreferenceKeyConstants.ACCESSTOKEN, "")
+            if(accessToken.isNullOrEmpty()){
+                val loginActivity = Intent(applicationContext, LoginActivity::class.java)
+                startActivity(loginActivity)
+            } else {
+                val sessionStreamingActivity = Intent(applicationContext, SessionStreamingActivity::class.java)
+                startActivity(sessionStreamingActivity)
+            }
+            finish()
         }, 500)
     }
 

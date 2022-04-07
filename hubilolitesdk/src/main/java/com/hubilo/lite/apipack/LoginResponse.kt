@@ -1,5 +1,6 @@
 package com.hubilo.lite.apipack
 
 data class LoginResponse(
-    val is_register:Boolean
+    val is_register:Boolean,
+    val accessToken:String
 )

@@ -13,7 +13,7 @@ class AllApiCalls(private val context: Context?) {
     private var apiInterfaceClass: APIInterface? = null
     private var mainResponseCall: Call<CommonResponse<LoginResponse>>? = null
 
-    fun mainResponseApiCall(
+    fun checkEmail(
         activity: Activity?,
         request: Request<UserRequest>,
         apiCallData: ApiCallResponseCallBack
@@ -25,6 +25,35 @@ class AllApiCalls(private val context: Context?) {
         mainResponseCall?.enqueue(object : Callback<CommonResponse<LoginResponse>?> {
             override fun onResponse(call: Call<CommonResponse<LoginResponse>?>, response: Response<CommonResponse<LoginResponse>?>) {
                 if (response.body() != null) {
+                    apiCallData.onSuccess(response.body()!!)
+                } else {
+                    apiCallData.onError(" ")
+                }
+            }
+
+            override fun onFailure(call: Call<CommonResponse<LoginResponse>?>, t: Throwable) {
+                apiCallData.onError(t.message + " ")
+            }
+        })
+    }
+
+
+    fun login(
+        activity: Activity?,
+        request: Request<UserRequest>,
+        apiCallData: ApiCallResponseCallBack
+    ) {
+        if (apiInterfaceClass == null) {
+            apiInterfaceClass = APIClient.getClient(activity?.applicationContext!!)?.create(APIInterface::class.java)
+        }
+        mainResponseCall = apiInterfaceClass?.login(request)
+        mainResponseCall?.enqueue(object : Callback<CommonResponse<LoginResponse>?> {
+            override fun onResponse(call: Call<CommonResponse<LoginResponse>?>, response: Response<CommonResponse<LoginResponse>?>) {
+                if (response.body() != null) {
+                    if(!response.body()?.success?.data?.accessToken.isNullOrEmpty()){
+                        val token = response.body()?.success?.data?.accessToken
+                        SharedPreferenceUtil.getInstance(context)?.saveData(PreferenceKeyConstants.ACCESSTOKEN, token)
+                    }
                     apiCallData.onSuccess(response.body()!!)
                 } else {
                     apiCallData.onError(" ")
