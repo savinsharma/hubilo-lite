@@ -1,155 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    tools:context=".SessionStreamingActivity">
+    android:layout_height="match_parent">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        android:background="@color/white">
+        android:orientation="vertical"
+        tools:context=".SessionStreamingActivity">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:elevation="0dp"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            android:visibility="gone">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolBar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/white"
-                app:contentInsetStart="0dp"
-                app:contentInsetStartWithNavigation="0dp"
-                app:layout_collapseMode="pin"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:popupTheme="@style/AppTheme.PopupOverlay"
-                app:title="">
-
-                <RelativeLayout
-                    android:id="@+id/relToolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginEnd="12dp"
-                    android:gravity="center_vertical|start">
-
-                    <TextView
-                        android:id="@+id/toolBarTitle"
-                        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_toStartOf="@+id/linIcons"
-                        android:fontFamily="sans-serif-condensed-medium"
-                        android:textColor="@color/black" />
-
-                    <LinearLayout
-                        android:id="@+id/linIcons"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center"
-                        android:minHeight="30dp"
-                        android:orientation="horizontal">
-
-                        <RelativeLayout
-                            android:id="@+id/relChat"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="8dp"
-                            android:padding="7dp">
-
-                            <ImageView
-                                android:id="@+id/imgChat"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:layout_gravity="center_vertical"
-                                android:src="@drawable/ic_chat" />
-
-                            <ImageView
-                                android:id="@+id/imgChatBadge"
-                                android:layout_width="6dp"
-                                android:layout_height="6dp"
-                                android:layout_alignParentTop="true"
-                                android:layout_alignParentEnd="true"
-                                android:layout_gravity="end|top"
-                                android:layout_marginStart="2dp"
-                                android:layout_marginBottom="2dp"
-                                android:background="@drawable/circle_without_border_shape" />
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:id="@+id/relPeople"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="8dp"
-                            android:padding="7dp">
-
-                            <ImageView
-                                android:id="@+id/imgSpectator"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/ic_people" />
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:id="@+id/relInfo"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="8dp"
-                            android:padding="7dp">
-
-                            <ImageView
-                                android:id="@+id/imgInfo"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/ic_table_info_lounge" />
-                        </RelativeLayout>
-
-                    </LinearLayout>
-                </RelativeLayout>
-            </androidx.appcompat.widget.Toolbar>
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <include
-            android:id="@+id/mainLayout"
-            layout="@layout/layout_session_list_detail_bottom_sheet"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/><!--
-            android:layout_marginBottom="@dimen/_60sdp" -->
-
-        <!--bottom sheet background -->
-        <View
-            android:id="@+id/viewBG"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:alpha="0"
-            android:background="#80000000"
-            android:visibility="gone" />
-        <!--bottom sheet background -->
+            android:background="@color/white"
+            android:fitsSystemWindows="true">
 
-        <!-- Adding bottom sheet after main content -->
-        <include
-            app:layout_anchorGravity="bottom"
-            android:visibility="gone"
-            android:id="@+id/bottom_sheet"
-            layout="@layout/layout_session_bottom_tabs" />
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:elevation="0dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                android:visibility="gone">
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-</LinearLayout>
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/white"
+                    app:contentInsetStart="0dp"
+                    app:contentInsetStartWithNavigation="0dp"
+                    app:layout_collapseMode="pin"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                    app:popupTheme="@style/AppTheme.PopupOverlay"
+                    app:title="">
+
+                    <RelativeLayout
+                        android:id="@+id/relToolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:gravity="center_vertical|start">
+
+                        <TextView
+                            android:id="@+id/toolBarTitle"
+                            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toStartOf="@+id/linIcons"
+                            android:fontFamily="sans-serif-condensed-medium"
+                            android:textColor="@color/black" />
+
+                        <LinearLayout
+                            android:id="@+id/linIcons"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"
+                            android:minHeight="30dp"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:id="@+id/relChat"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="8dp"
+                                android:padding="7dp">
+
+                                <ImageView
+                                    android:id="@+id/imgChat"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center_vertical"
+                                    android:src="@drawable/ic_chat" />
+
+                                <ImageView
+                                    android:id="@+id/imgChatBadge"
+                                    android:layout_width="6dp"
+                                    android:layout_height="6dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_gravity="end|top"
+                                    android:layout_marginStart="2dp"
+                                    android:layout_marginBottom="2dp"
+                                    android:background="@drawable/circle_without_border_shape" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/relPeople"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="8dp"
+                                android:padding="7dp">
+
+                                <ImageView
+                                    android:id="@+id/imgSpectator"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ic_people" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/relInfo"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="8dp"
+                                android:padding="7dp">
+
+                                <ImageView
+                                    android:id="@+id/imgInfo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ic_table_info_lounge" />
+                            </RelativeLayout>
+
+                        </LinearLayout>
+                    </RelativeLayout>
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <include
+                android:id="@+id/mainLayout"
+                layout="@layout/layout_session_list_detail_bottom_sheet"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" /><!--
+            android:layout_marginBottom="@dimen/_60sdp" -->
+
+            <!--bottom sheet background -->
+            <View
+                android:id="@+id/viewBG"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0"
+                android:background="#80000000"
+                android:visibility="gone" />
+            <!--bottom sheet background -->
+
+            <!-- Adding bottom sheet after main content -->
+            <include
+                android:id="@+id/bottom_sheet"
+                layout="@layout/layout_session_bottom_tabs"
+                android:visibility="gone"
+                app:layout_anchorGravity="bottom" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="64dp"
+        android:layout_centerInParent="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+</RelativeLayout>

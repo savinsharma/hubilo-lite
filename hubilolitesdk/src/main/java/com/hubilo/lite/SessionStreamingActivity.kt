@@ -10,6 +10,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.text.Html
 import android.util.DisplayMetrics
 import android.view.View
 import android.view.ViewTreeObserver
@@ -100,13 +101,15 @@ class SessionStreamingActivity : AppCompatActivity(), WebViewYoutubeCallBacks {
     }
 
     private fun fillSessionData(sessionDetailResponse: SessionDetailResponse) {
-        binding.mainLayout.tvStartTimeEndTime.text =
-            getTimeFromInputFormat(sessionDetailResponse.agendaInfo?.startTimeMilli?.toLong() ?: 0)
-        binding.mainLayout.tvSessionDate.text =
-            getDateFromInputFormat(sessionDetailResponse.agendaInfo?.startTimeMilli?.toLong() ?: 0)
+        binding.loading.visibility = View.GONE
+        binding.mainLayout.txtSpeakerHeading.visibility = View.VISIBLE
+        var time = getTimeFromInputFormat(sessionDetailResponse.agendaInfo?.startTimeMilli?.toLong() ?: 0) + " - " +
+                getTimeFromInputFormat(sessionDetailResponse.agendaInfo?.endTimeMilli?.toLong() ?: 0)
+        binding.mainLayout.tvStartTimeEndTime.text = time
+        binding.mainLayout.tvSessionDate.text = getDateFromInputFormat(sessionDetailResponse.agendaInfo?.startTimeMilli?.toLong() ?: 0)
         binding.mainLayout.tvSessionTitle.text = sessionDetailResponse.title ?: ""
-        binding.mainLayout.tvSessionDescription.text =
-            sessionDetailResponse.agendaInfo?.description ?: ""
+        binding.mainLayout.tvSessionDescription.text = Html.fromHtml(sessionDetailResponse.agendaInfo?.description ?: "")
+
         sessionStreamLoadVYoutubeVideo(
             getVideoId(
                 sessionDetailResponse.agendaInfo?.streamLink ?: ""

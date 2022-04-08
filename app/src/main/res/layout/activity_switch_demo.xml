@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/color_1d4956"
     android:layout_height="match_parent">
 
     <TextView
@@ -13,7 +14,8 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayoutCompat"
         tools:layout_marginStart="45dp"
         tools:layout_marginEnd="45dp"
-        android:textSize="28dp"
+        android:textSize="25dp"
+        android:textStyle="bold"
         android:layout_marginBottom="45dp"/>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -29,12 +31,16 @@
         <Button
             android:id="@+id/btnSignin"
             android:layout_width="match_parent"
+            android:backgroundTint="@color/color_ffdf00"
+            android:textColor="@color/black"
             android:layout_height="45dp"
-            android:text="@string/sign_in" />
+            android:text="Access with Login" />
 
         <Button
             android:id="@+id/btnWithoutSignin"
             android:layout_width="match_parent"
+            android:backgroundTint="@color/color_ffdf00"
+            android:textColor="@color/black"
             android:layout_height="45dp"
             android:layout_marginTop="45dp"
             android:text="@string/without_sign_in" />

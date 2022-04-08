@@ -241,12 +241,6 @@
                                             android:layout_height="wrap_content"
                                             android:src="@drawable/ic_fullscreen_24" />
 
-                                        <ImageView
-                                            android:id="@+id/ivPip"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:src="@drawable/ic_baseline_picture_in_picture_alt_24" />
-
                                     </LinearLayout>
                                 </RelativeLayout>
 
@@ -807,6 +801,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="12dp"
                                         android:layout_marginTop="26dp"
+                                        android:visibility="gone"
                                         android:layout_marginEnd="12dp"
                                         android:fontFamily="sans-serif-condensed-medium"
                                         android:textStyle="bold"

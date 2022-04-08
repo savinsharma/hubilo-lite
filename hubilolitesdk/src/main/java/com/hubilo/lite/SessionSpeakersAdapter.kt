@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.hubilo.lite.databinding.LayoutSessionSpeakerItemBinding
 
 class SessionSpeakersAdapter(val context: Context, val speakersItemListDetail: List<com.hubilo.lite.apipack.SpeakersItemDetail?>, )
@@ -61,18 +63,18 @@ class SessionSpeakersAdapter(val context: Context, val speakersItemListDetail: L
             layoutSessionSpeakerItemBinding = binding
         }
 
-        fun bind(speakersItem: SpeakersItem?) {
-            val profileImage = "https://cdn.v2dev.demohubilo.com/" + "speaker/" +  + "/150" + speakersItem?.profileImg
-            layoutSessionSpeakerItemBinding!!.tvSessionSpeakerName.text = speakersItem?.name
-            layoutSessionSpeakerItemBinding!!.
-        }
-
         fun bindSessionDetail(speakersItem: com.hubilo.lite.apipack.SpeakersItemDetail?) {
-
+            val profileImage = "https://cdn.v2dev.demohubilo.com/" + "speaker/" + "46363" + "/150/" + speakersItem?.profileImg
+            layoutSessionSpeakerItemBinding!!.tvSessionSpeakerName.text = speakersItem?.name
+            Glide.with(context)
+                .asBitmap()
+                .load(profileImage)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(layoutSessionSpeakerItemBinding!!.ivSessionSpeaker)
         }
     }
 
-    fun dp2px(resource: Resources, dp: Int): Int {
+    private fun dp2px(resource: Resources, dp: Int): Int {
         return TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,
             dp.toFloat(), resource.getDisplayMetrics()

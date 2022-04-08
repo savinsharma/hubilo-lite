@@ -64,6 +64,7 @@ class LoginActivity :AppCompatActivity() {
                                         val signupActivity = Intent(applicationContext, SignupActivity::class.java)
                                         signupActivity.putExtra("email", email)
                                         startActivity(signupActivity)
+                                        finish()
                                     }
                                 }
                             }
