@@ -2,11 +2,13 @@ package com.hubilo.lite.apipack
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.text.TextUtils
 import android.util.Patterns
 import android.widget.EditText
 import android.widget.Toast
 import com.hubilo.lite.R
+import com.hubilo.lite.SessionStreamingActivity
 
 object LoginHelper {
 
@@ -105,5 +107,39 @@ object LoginHelper {
 
     private fun isValidEmail(target: CharSequence?): Boolean {
         return !TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches()
+    }
+
+    fun makeOfflineAPI(activity: Activity, context: Context){
+        if(InternetReachability.hasConnection(activity)) {
+            val currentMilli = System.currentTimeMillis()
+            val email = "${currentMilli}@hubilo.com"
+            val firstName = "Anonymous"
+            val lastName = "User"
+            val password = "$currentMilli"
+            LoginHelper.signInApi(activity, context, email, firstName, lastName, password,  object : ApiCallResponseCallBack {
+                override fun onError(error: String) {
+
+                }
+
+                override fun onSuccess(mainResponse: CommonResponse<LoginResponse>) {
+                    if (mainResponse.status == true) {
+                        if (mainResponse.success?.data != null) {
+                            if (mainResponse.success?.data is LoginResponse) {
+                                val loginResponse = mainResponse.success?.data as LoginResponse
+                                if (!loginResponse.accessToken.isNullOrEmpty()) {
+                                    val sessionStreamingActivity = Intent(activity, SessionStreamingActivity::class.java)
+                                    activity.startActivity(sessionStreamingActivity)
+                                } else {
+                                    //open sign up page here
+                                    Toast.makeText(activity, "Something is wrong with login", Toast.LENGTH_LONG).show()
+                                }
+                            }
+                        }
+                    }
+                }
+            })
+        } else {
+            Toast.makeText(activity, "Internet connection error", Toast.LENGTH_LONG).show()
+        }
     }
 }

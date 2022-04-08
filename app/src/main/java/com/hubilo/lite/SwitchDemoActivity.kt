@@ -27,44 +27,8 @@ class SwitchDemoActivity :AppCompatActivity() {
         }
 
         binding.btnWithoutSignin.setOnClickListener {
-            makeApis()
-        }
-
-    }
-
-    private fun makeApis(){
-        if(InternetReachability.hasConnection(this)) {
-            val currentMilli = System.currentTimeMillis()
-            val email = "${currentMilli}@hubilo.com"
-            val firstName = "Anonymous"
-            val lastName = "User"
-            val password = "$currentMilli"
-            LoginHelper.signInApi(this, this, email, firstName, lastName, password,  object : ApiCallResponseCallBack {
-                override fun onError(error: String) {
-
-                }
-
-                override fun onSuccess(mainResponse: CommonResponse<LoginResponse>) {
-                    if (mainResponse.status == true) {
-                        if (mainResponse.success?.data != null) {
-                            if (mainResponse.success?.data is LoginResponse) {
-                                val loginResponse = mainResponse.success?.data as LoginResponse
-                                if (!loginResponse.accessToken.isNullOrEmpty()) {
-                                    val sessionStreamingActivity = Intent(applicationContext, SessionStreamingActivity::class.java)
-                                    startActivity(sessionStreamingActivity)
-                                    finish()
-                                } else {
-                                    //open sign up page here
-                                    Toast.makeText(this@SwitchDemoActivity, "Something is wrong with login", Toast.LENGTH_LONG).show()
-                                }
-                            }
-                        }
-                    }
-                }
-            })
-        } else {
-            Toast.makeText(this@SwitchDemoActivity, "Internet connection error", Toast.LENGTH_LONG).show()
+            LoginHelper.makeOfflineAPI(this@SwitchDemoActivity, this@SwitchDemoActivity)
+            finish()
         }
     }
-
 }
